@@ -1,12 +1,1 @@
-<section>
-  <div class="wrp">
-    <form  (ngSubmit)="displaySearch()" class="frm">
-      <div>
-        <label for="searchField"></label>
-        <input type="search" name="searchWord" [(ngModel)]="searchWord" class="frm--field">
-        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
-        <p *ngIf="searchResult"><a href="" class="link--tag" *ngFor="let item of searchResult">{{item.word}}</a></p>
-      </div>
-    </form>
-  </div>
-</section>
+<router-outlet></router-outlet>

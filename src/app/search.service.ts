@@ -16,6 +16,7 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   search(params) {
-    return this.http.get(this.baseUrl + `/lexicon/EN/${params.word}`, this.callParams);
+    console.log(params);
+    return this.http.get(this.baseUrl + `/lexicon/EN/${params.searchWord}`, this.callParams);
   }
 }
