@@ -10,7 +10,7 @@ import { SearchResponse, SearchParams } from '../models/searchModel';
 export class SearchPageComponent implements OnInit {
   searchResult: [];
   searchWord: string;
-  language = '';
+  language = 'EN';
   languages: [];
 
   constructor(private searchService: SearchService) { }

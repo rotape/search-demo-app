@@ -3,11 +3,11 @@
     <div>
       <label for="searchField"></label>
       <select name="searchLanguage" [(ngModel)]="language" required>
-          <option [ngValue]="''">Choose a language</option>
+          
         <option *ngFor="let language of languages" [value]="language">{{language}}</option>
       </select>
       <input type="search" name="searchWord" [(ngModel)]="searchWord" class="frm--field" placeholder="Search a word" required>
-      <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+      <button type="submit" class="btn" [disabled]="!form.valid" ><i class="fa fa-search"></i></button>
     </div>
   </form>
   <h2 class="hlp--ac" *ngIf="searchResult">{{searchResult.length}} results</h2>
