@@ -1,5 +1,5 @@
 
-<div  class="wrp flex flex--centered">
+<div  class="wrp flex flex--column flex--centered">
   <div *ngIf="!details" class="hlp--ac"><h2>No details found!</h2></div>
 <div *ngIf="details">
 
@@ -34,5 +34,5 @@
       </tbody>
     </table>
   </div>
-  <button class="btn flex--centered" [routerLink]="['/']">Back to Search</button>
+  <button class="btn btn--wide flex flex--centered" [routerLink]="['/']">Back to Search</button>
   </div>

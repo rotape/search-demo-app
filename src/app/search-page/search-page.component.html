@@ -1,14 +1,11 @@
-<div class="wrp">
-  <form #form="ngForm" (ngSubmit)="displaySearch()" class="frm">
-    <div>
+<div class="wrp flex flex--column flex--centered">
+  <form #form="ngForm" (ngSubmit)="displaySearch()" class="frm flex">
       <label for="searchField"></label>
-      <select name="searchLanguage" [(ngModel)]="language" required>
-          
-        <option *ngFor="let language of languages" [value]="language">{{language}}</option>
+      <select class="frm frm--select" name="searchLanguage" [(ngModel)]="language" required>
+        <option  *ngFor="let language of languages" [value]="language">{{language}}</option>
       </select>
-      <input type="search" name="searchWord" [(ngModel)]="searchWord" class="frm--field" placeholder="Search a word" required>
+      <input type="search" name="searchWord" [(ngModel)]="searchWord" class="frm frm--field" placeholder="Search a word" required>
       <button type="submit" class="btn" [disabled]="!form.valid" ><i class="fa fa-search"></i></button>
-    </div>
   </form>
   <h2 class="hlp--ac" *ngIf="searchResult">{{searchResult.length}} results</h2>
   <p *ngIf="searchResult">
