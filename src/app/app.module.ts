@@ -11,7 +11,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 const appRoutes: Routes = [
   {path: '', component: SearchPageComponent },
 
-  {path: 'detailsPage', component: DetailsPageComponent }
+  {path: 'detailsPage/:word', component: DetailsPageComponent }
 ];
 @NgModule({
   declarations: [
