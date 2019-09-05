@@ -12,18 +12,16 @@ export class SearchPageComponent implements OnInit {
   searchResult: [];
   searchWord: string;
   params = { language: '', word: this.searchWord };
-  model = { language: '', searchWord: this.searchWord };
 
   constructor( private searchService: SearchService) { }
 
   ngOnInit() {}
 
-  displaySearch() {
-    this.params.language = this.model.language;
-    this.params.word = this.model.searchWord;
-    this.searchService.search(this.params).subscribe((resp: SearchResponse) => {
+  displaySearch(form) {
+    /*this.params.language = this.model.language;*/
+    this.params.word = form.value;
+    this.searchService.search(this.params.word).subscribe((resp: SearchResponse) => {
       this.searchResult = resp.semanticallySimilarWords;
-    console.log('displaying seearch', this.searchResult);
     });
   }
 }
