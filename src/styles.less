@@ -14,12 +14,15 @@
 }
 
 .frm {
+    display: flex;
+    justify-content: center;
      &-field {
         background: #fff;
         border: 1px solid #B3B3B3;
         border-radius: .25em;
+        width: 10em;
         max-width: 100%;
-        padding: .5em 1em;
+        padding: 1em 2.5em;
     }
 }
 
@@ -68,4 +71,12 @@
 			padding: 0 1rem !important;
 		}
 	}
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    &--centered {
+        justify-content: center;
+    }
 }

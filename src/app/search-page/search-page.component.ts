@@ -8,7 +8,6 @@ import { SearchResponse, SearchParams } from '../models/searchModel';
   styleUrls: ['./search-page.component.less']
 })
 export class SearchPageComponent implements OnInit {
-  title = 'lexicon';
   searchResult: [];
   searchWord: string;
 
