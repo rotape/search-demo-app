@@ -1,34 +1,38 @@
-<div *ngIf="details" class="wrp flex flex--centered">
+
+<div  class="wrp flex flex--centered">
+  <div *ngIf="!details" class="hlp--ac"><h2>No details found!</h2></div>
+<div *ngIf="details">
 
   <h1>{{details.word}}</h1>
   <table class="table--blck">
     <tbody>
-      <tr>
+      <tr *ngIf="details.absoluteRank">
         <td>Absolute Rank</td>
         <td class="hlp--ar">{{details.absoluteRank}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="details.documentFrequency">
         <td>Document Frequency</td>
         <td class="hlp--ar">{{details.documentFrequency}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="details.frequency">
         <td>Frequency</td>
         <td class="hlp--ar">{{details.frequency}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="details.relativeRank">
         <td>Relative Rank</td>
         <td class="hlp--ar">{{details.relativeRank}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="details.vocabularySize">
         <td>Vocabulary Size</td>
         <td class="hlp--ar">{{details.vocabularySize}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="details.additionalInformation.link">
         <td>Additional Information</td>
         <td class="hlp--ar"><a class="link"
-            href="{{details.additionalInformation.link}}">{{details.additionalInformation.link}}</a></td>
-      </tr>
-    </tbody>
-  </table>
-<button class="btn flex--centered" [routerLink]="['/']">Back to Search</button>
-</div>
+          href="{{details.additionalInformation.link}}">{{details.additionalInformation.link}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="btn flex--centered" [routerLink]="['/']">Back to Search</button>
+  </div>

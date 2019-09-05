@@ -2,12 +2,16 @@
   <form #form="ngForm" (ngSubmit)="displaySearch()" class="frm">
     <div>
       <label for="searchField"></label>
-      <select name="searchLanguage">
+      <select name="searchLanguage" [(ngModel)]="language" required>
+          <option [ngValue]="''">Choose a language</option>
         <option *ngFor="let language of languages" [value]="language">{{language}}</option>
       </select>
-      <input type="search" name="searchWord" [(ngModel)]="searchWord" class="frm--field" placeholder="Search a word">
+      <input type="search" name="searchWord" [(ngModel)]="searchWord" class="frm--field" placeholder="Search a word" required>
       <button type="submit" class="btn"><i class="fa fa-search"></i></button>
     </div>
   </form>
-  <p *ngIf="searchResult"><a href="" class="link--tag" *ngFor="let item of searchResult" [routerLink]="['/detailsPage', item.word, item.language]">{{item.word}}</a></p>
+  <h2 class="hlp--ac" *ngIf="searchResult">{{searchResult.length}} results</h2>
+  <p *ngIf="searchResult">
+    <a href="" class="link--tag" *ngFor="let item of searchResult" [routerLink]="['/detailsPage', language, item.word]">{{item.word}}</a>
+  </p>
 </div>
