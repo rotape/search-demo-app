@@ -7,6 +7,8 @@ import {  HttpClientModule } from '@angular/common/http';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchPageComponent } from './search-page/search-page.component';
+import { OverlayComponent } from './overlay/overlay.component';
+import { OverlayService } from './overlay.service';
 
 const appRoutes: Routes = [
   {path: '', component: SearchPageComponent },
@@ -17,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DetailsPageComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    OverlayComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
@@ -25,7 +28,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [SearchService],
+  providers: [SearchService, OverlayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

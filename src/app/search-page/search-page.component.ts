@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import { SearchResponse, SearchParams } from '../models/searchModel';
+import { OverlayService } from '../overlay.service';
 
 @Component({
   selector: 'app-search-page',
@@ -13,15 +14,17 @@ export class SearchPageComponent implements OnInit {
   language = 'EN';
   languages: [];
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private overlayService: OverlayService) { }
 
   ngOnInit() {
-    this.searchService.getLanguages().subscribe((res: []) =>  this.languages = res);
+    this.overlayService.display(true);
+    this.searchService.getLanguages().subscribe((res: []) =>  this.languages = res, res => this.overlayService.display(false));
   }
 
   displaySearch() {
+    this.overlayService.display(true);
     this.searchService
       .search(new SearchParams(this.searchWord, this.language))
-      .subscribe((resp: SearchResponse) => this.searchResult = resp.semanticallySimilarWords);
+      .subscribe((resp: SearchResponse) => this.searchResult = resp.semanticallySimilarWords, res => this.overlayService.display(false));
   }
 }
