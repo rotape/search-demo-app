@@ -1,3 +1,34 @@
-<p>
-  deatails-page works!
-</p>
+<div *ngIf="details" class="wrp">
+
+  <h1>{{details.word}}</h1>
+  <table class="table--blck">
+    <tbody>
+      <tr>
+        <td>Absolute Rank</td>
+        <td class="hlp--ar">{{details.absoluteRank}}</td>
+      </tr>
+      <tr>
+        <td>Document Frequency</td>
+        <td class="hlp--ar">{{details.documentFrequency}}</td>
+      </tr>
+      <tr>
+        <td>Frequency</td>
+        <td class="hlp--ar">{{details.frequency}}</td>
+      </tr>
+      <tr>
+        <td>Relative Rank</td>
+        <td class="hlp--ar">{{details.relativeRank}}</td>
+      </tr>
+      <tr>
+        <td>Vocabulary Size</td>
+        <td class="hlp--ar">{{details.vocabularySize}}</td>
+      </tr>
+      <tr>
+        <td>Additional Information</td>
+        <td class="hlp--ar"><a class="link"
+            href="{{details.additionalInformation.link}}">{{details.additionalInformation.link}}</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

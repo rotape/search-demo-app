@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SearchParams } from './models/searchModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  search(params) {
-    return this.http.get(this.baseUrl + `/lexicon/EN/${params.searchWord}`, this.callParams);
+  search(params: SearchParams) {
+    return this.http.get(this.baseUrl + `/lexicon/${params.lang}/${params.word}`, this.callParams);
   }
-  
 }

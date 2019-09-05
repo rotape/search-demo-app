@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
-import { SearchResponse } from '../models/searchModel';
+import { SearchResponse, SearchParams } from '../models/searchModel';
 
 @Component({
   selector: 'app-search-page',
@@ -11,17 +11,14 @@ export class SearchPageComponent implements OnInit {
   title = 'lexicon';
   searchResult: [];
   searchWord: string;
-  params = { language: '', word: this.searchWord };
 
-  constructor( private searchService: SearchService) { }
+  constructor(private searchService: SearchService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  displaySearch(form) {
-    /*this.params.language = this.model.language;*/
-    this.params.word = form.value;
-    this.searchService.search(this.params.word).subscribe((resp: SearchResponse) => {
-      this.searchResult = resp.semanticallySimilarWords;
-    });
+  displaySearch() {
+    this.searchService
+      .search(new SearchParams(this.searchWord))
+      .subscribe((resp: SearchResponse) => this.searchResult = resp.semanticallySimilarWords);
   }
 }

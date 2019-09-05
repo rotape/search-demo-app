@@ -1,11 +1,13 @@
+
 /* You can add global styles to this file, and also import other style files */
+@import './less/variables';
 .link {
+    font-family:Arial, Helvetica, sans-serif;
     &--tag {
         display: inline-block;
         padding: .5em;
         margin: .5em .2em;
         text-decoration:none;
-        font-family:Arial, Helvetica, sans-serif;
         border-radius: 2em;
         border: 2px solid blueviolet;
     }
@@ -31,4 +33,39 @@
     background:salmon;
     border:2px solid salmon;
     letter-spacing:1px;
+}
+
+.hlp {
+    &--ac {
+        text-align: center;
+    }
+    &--al {
+        text-align: left;
+    }
+    &--ar {
+        text-align: right;
+    }
+ 
+    &--fl {
+        float: left;
+    }
+    &--fr {
+        float: right;
+    }
+    &--hidden {
+        display: none;
+    }
+ 
+}
+
+.wrp{
+	margin:0 auto;
+	max-width:@media_desktop;
+	padding:1rem;
+	&--loan_insights{
+		@media (max-width: @media_tablet){
+			display: flex;
+			padding: 0 1rem !important;
+		}
+	}
 }

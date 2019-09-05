@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { SearchService } from '../search.service';
+import { WordDetails, SearchParams } from '../models/searchModel';
 
 @Component({
   selector: 'app-details-page',
@@ -9,17 +9,15 @@ import { SearchService } from '../search.service';
   styleUrls: ['./details-page.component.less']
 })
 export class DetailsPageComponent implements OnInit {
-  word: string;
-  details = {};
+  details: any;
 
   constructor(private route: ActivatedRoute, private searchService: SearchService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
-      this.word = params.get('word');
-    });
-    this.searchService.search(this.word).subscribe((res) => {
-      this.details = res;
+      this.searchService
+        .search(new SearchParams(params.get('word')))
+        .subscribe((resp: WordDetails) => this.details = resp.wordInformation);
     });
   }
 
