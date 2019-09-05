@@ -16,7 +16,7 @@ export class DetailsPageComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.searchService
-        .search(new SearchParams(params.get('word')))
+        .search(new SearchParams(params.get('word'), params.get('language')))
         .subscribe((resp: WordDetails) => this.details = resp.wordInformation);
     });
   }

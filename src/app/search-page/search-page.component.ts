@@ -10,14 +10,18 @@ import { SearchResponse, SearchParams } from '../models/searchModel';
 export class SearchPageComponent implements OnInit {
   searchResult: [];
   searchWord: string;
+  language: string;
+  languages: [];
 
   constructor(private searchService: SearchService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.searchService.getLanguages().subscribe((res: []) =>  this.languages = res);
+  }
 
   displaySearch() {
     this.searchService
-      .search(new SearchParams(this.searchWord))
+      .search(new SearchParams(this.searchWord, this.language))
       .subscribe((resp: SearchResponse) => this.searchResult = resp.semanticallySimilarWords);
   }
 }

@@ -2,9 +2,9 @@ export class SearchParams {
     lang: string;
     word: string;
 
-    constructor(word: string) {
+    constructor(word: string, lang: string) {
         this.word = word;
-        this.lang = 'EN';
+        this.lang = lang;
     }
 }
 export interface SearchResponse {

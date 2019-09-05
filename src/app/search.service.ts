@@ -19,4 +19,8 @@ export class SearchService {
   search(params: SearchParams) {
     return this.http.get(this.baseUrl + `/lexicon/${params.lang}/${params.word}`, this.callParams);
   }
+
+  getLanguages() {
+    return this.http.get(this.baseUrl + '/languages', this.callParams);
+  }
 }
