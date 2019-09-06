@@ -18,13 +18,18 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit() {
     this.overlayService.display(true);
-    this.searchService.getLanguages().subscribe((res: []) =>  this.languages = res, res => this.overlayService.display(false));
+    this.searchService.getLanguages().subscribe((res: []) => this.languages = res,
+        () => console.log('ERROR'),
+        () => this.overlayService.display(false));
   }
 
   displaySearch() {
     this.overlayService.display(true);
     this.searchService
       .search(new SearchParams(this.searchWord, this.language))
-      .subscribe((resp: SearchResponse) => this.searchResult = resp.semanticallySimilarWords, res => this.overlayService.display(false));
+      .subscribe(
+        (resp: SearchResponse) => this.searchResult = resp.semanticallySimilarWords,
+        () => console.log('ERROR'),
+        () => this.overlayService.display(false));
   }
 }
