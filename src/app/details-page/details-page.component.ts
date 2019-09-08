@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SearchService } from '../services/search.service';
-import { WordDetails, SearchParams } from '../models/searchModel';
-import { OverlayService } from '../services/overlay.service';
+import {Component, OnInit, Input} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {SearchService} from '../services/search.service';
+import {WordDetails, SearchParams} from '../models/searchModel';
+import {OverlayService} from '../services/overlay.service';
 
 @Component({
   selector: 'app-details-page',
@@ -12,16 +12,19 @@ import { OverlayService } from '../services/overlay.service';
 export class DetailsPageComponent implements OnInit {
   details: any;
 
-  constructor(private route: ActivatedRoute, private searchService: SearchService, private overlayService: OverlayService) { }
+  constructor(private route: ActivatedRoute, private searchService: SearchService, private overlayService: OverlayService) {
+  }
 
   ngOnInit() {
     this.overlayService.display(true);
     this.route.paramMap.subscribe((params) => {
       this.searchService
-        .search(new SearchParams(params.get('word'), params.get('language')))
-        .subscribe((resp: WordDetails) => this.details = resp.wordInformation,
-        () => console.log('ERROR'),
-        () => this.overlayService.display(false));
+        .getWordDetails(new SearchParams(params.get('word'), params.get('language')))
+        .subscribe((resp: WordDetails) => {
+            this.details = resp;
+          },
+          () => console.log('ERROR'),
+          () => this.overlayService.display(false));
     });
   }
 

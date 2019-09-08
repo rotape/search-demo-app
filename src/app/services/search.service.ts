@@ -7,20 +7,32 @@ import { SearchParams } from '../models/searchModel';
 })
 export class SearchService {
   baseUrl = 'https://api.gavagai.se/v3';
-  callParams = {
+  apiKey = '8c79736f393ab6eff4a864fcfa23344c';
+  searchCallParams = {
     params : {
-      apiKey: '3acdef1f01cbceb88b132158abd466da',
+      apiKey: this.apiKey,
       additionalFields: ['SEMANTICALLY_SIMILAR_WORDS']
+    }
+  };
+
+  getWordDetailsParams = {
+    params: {
+      apiKey: this.apiKey,
     }
   };
 
   constructor(private http: HttpClient) { }
 
   search(params: SearchParams) {
-    return this.http.get(this.baseUrl + `/lexicon/${params.lang}/${params.word}`, this.callParams);
+    return this.http.get(this.baseUrl + `/lexicon/${params.lang}/${params.word}`, this.searchCallParams);
+  }
+
+  getWordDetails(params: SearchParams) {
+    return this.http.get(this.baseUrl + `/lexicon/${params.lang}/${params.word}/info`, this.getWordDetailsParams);
+
   }
 
   getLanguages() {
-    return this.http.get(this.baseUrl + '/languages', this.callParams);
+    return this.http.get(this.baseUrl + '/languages', { params : {apiKey: this.apiKey}});
   }
 }
