@@ -8,16 +8,16 @@ export class SearchParams {
     }
 }
 export interface SearchResponse {
-    semanticallySimilarWords: [];
+  semanticallySimilarWords: [];
 }
 
 export interface WordDetails {
-    wordInformation: {
-        absoluteRank: number,
-        additionalInformation: { link: string },
-        frequency: number,
-        relativeRank: number,
-        vocabularySize: number,
-        word: string
-    };
+  wordInformation: {
+    absoluteRank: number;
+    additionalInformation: { link: string };
+    frequency: number;
+    relativeRank: number;
+    vocabularySize: number;
+    word: string;
+  };
 }
