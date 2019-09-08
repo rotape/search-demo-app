@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { SearchService } from './search.service';
+import { SearchService } from './services/search.service';
 import {  HttpClientModule } from '@angular/common/http';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { OverlayComponent } from './overlay/overlay.component';
-import { OverlayService } from './overlay.service';
+import { OverlayService } from './services/overlay.service';
 
 const appRoutes: Routes = [
   {path: '', component: SearchPageComponent },

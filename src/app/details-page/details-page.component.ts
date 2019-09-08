@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SearchService } from '../search.service';
+import { SearchService } from '../services/search.service';
 import { WordDetails, SearchParams } from '../models/searchModel';
-import { OverlayService } from '../overlay.service';
+import { OverlayService } from '../services/overlay.service';
 
 @Component({
   selector: 'app-details-page',

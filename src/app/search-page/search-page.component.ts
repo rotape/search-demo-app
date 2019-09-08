@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../search.service';
+import { SearchService } from '../services/search.service';
 import { SearchResponse, SearchParams } from '../models/searchModel';
-import { OverlayService } from '../overlay.service';
+import { OverlayService } from '../services/overlay.service';
 
 @Component({
   selector: 'app-search-page',
